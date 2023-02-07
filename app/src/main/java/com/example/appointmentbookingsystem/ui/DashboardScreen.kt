@@ -37,31 +37,61 @@ class DashboardScreen : AppCompatActivity() {
                 "0",
                 "Joe",
                 "(000) 000-0000",
-                "male"
+                "male",
+                "",
+                "",
+                0,
+                0,
+                "",
+                ""
             ),
             Doctor(
                 "1",
                 "Dunwanna",
                 "(000) 000-0000",
-                "male"
+                "male",
+                "",
+                "",
+                0,
+                0,
+                "",
+                ""
             ),
             Doctor(
                 "2",
                 "Lisa",
                 "(000) 000-0000",
-                "not male"
+                "not male",
+                "",
+                "",
+                0,
+                0,
+                "",
+                ""
             ),
             Doctor(
                 "3",
                 "Patient",
                 "(000) 000-0000",
-                "male"
+                "male",
+                "",
+                "",
+                0,
+                0,
+                "",
+                ""
             ),
             Doctor(
                 "4",
                 "Not Doctor",
                 "(000) 000-0000",
-                "undefined"
+                "undefined",
+                "",
+                "",
+                0,
+                0,
+                "",
+                ""
             )
         )
 
