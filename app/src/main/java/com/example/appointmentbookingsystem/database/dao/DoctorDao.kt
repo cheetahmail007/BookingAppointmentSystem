@@ -42,20 +42,20 @@ class DoctorDao(private val dbHelper: DbHelper) {
         return doctorList
     }
 
-    fun deleteDoctor(patientId: Long): Boolean {
-        val numOfRowDeleted: Int = database.writableDatabase.delete("doctor", "doctorId=$patientId", null)
+    fun deleteDoctor(Id: Long): Boolean {
+        val numOfRowDeleted: Int = database.writableDatabase.delete("doctor", "doctorId=$Id", null)
         return numOfRowDeleted == 1
     }
 
-    fun updateDoctor(patient: Patient): Boolean {
+    fun updateDoctor(doctor: Doctor): Boolean {
         val contentValues = ContentValues()
         contentValues.apply {
-            put("name", patient.name)
-            put("mobileNo", patient.mobileNo)
+            put("name", doctor.name)
+            put("mobileNo", doctor.mobileNo)
         }
 
         val numOfRowDeleted: Int =
-            database.writableDatabase.update("doctor", contentValues, "doctorId=${patient.id}", null)
+            database.writableDatabase.update("doctor", contentValues, "doctorId=${doctor.id}", null)
         return numOfRowDeleted == 1
     }
 }
