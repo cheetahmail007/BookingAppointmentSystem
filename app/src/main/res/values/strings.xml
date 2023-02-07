@@ -20,4 +20,9 @@
     <string name="message">Describe your illness</string>
     <string name="gender">Male or Female</string>
     <string name="location">Address</string>
+    <string name="doctorName">Doctor Name</string>
+    <string name="bookAppointment">Book Appointment</string>
+    <string name="chooseTimeTitle">Choose Time</string>
+    <string name="scheduleTitle">Schedule</string>
+    <string name="patientName">Patient Name</string>
 </resources>
