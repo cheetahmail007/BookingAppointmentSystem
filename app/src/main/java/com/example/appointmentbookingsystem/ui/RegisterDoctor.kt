@@ -49,7 +49,7 @@ class RegisterDoctor : AppCompatActivity() {
             val email = binding.editEmail.text.toString()
             doctorDao.addDoctor(
                 Doctor(
-                    "",
+                    69L,
                     name,
                     mobileNo,
                     gender,

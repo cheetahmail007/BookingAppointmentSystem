@@ -34,7 +34,7 @@ class DashboardScreen : AppCompatActivity() {
     companion object {
         val placeholderDoctors = listOf(
             Doctor(
-                "0",
+                0L,
                 "Joe",
                 "(000) 000-0000",
                 "male",
@@ -46,7 +46,7 @@ class DashboardScreen : AppCompatActivity() {
                 ""
             ),
             Doctor(
-                "1",
+                1L,
                 "Dunwanna",
                 "(000) 000-0000",
                 "male",
@@ -58,7 +58,7 @@ class DashboardScreen : AppCompatActivity() {
                 ""
             ),
             Doctor(
-                "2",
+                2L,
                 "Lisa",
                 "(000) 000-0000",
                 "not male",
@@ -70,7 +70,7 @@ class DashboardScreen : AppCompatActivity() {
                 ""
             ),
             Doctor(
-                "3",
+                3L,
                 "Patient",
                 "(000) 000-0000",
                 "male",
@@ -82,7 +82,7 @@ class DashboardScreen : AppCompatActivity() {
                 ""
             ),
             Doctor(
-                "4",
+                4L,
                 "Not Doctor",
                 "(000) 000-0000",
                 "undefined",

@@ -1,7 +1,7 @@
 package com.example.appointmentbookingsystem.database.entity
 
 data class Doctor(
-    val id: String,
+    val id: Long,
     val name: String,
     val mobileNo: String,
     val gender: String,
