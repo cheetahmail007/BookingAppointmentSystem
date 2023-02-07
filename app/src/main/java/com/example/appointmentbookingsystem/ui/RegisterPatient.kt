@@ -24,17 +24,27 @@ class RegisterPatient : AppCompatActivity() {
     }
     private fun initDatabase() {
         dbHelper = DbHelper(this.applicationContext)
+        patientDao = PatientDao(dbHelper)
     }
     private fun initView() {
-        binding.edPatientName.setOnClickListener {
-            patientDao.addPatient(Patient(
-                "1",
-                "Benjamin",
-                "benjamin@gmail.com",
-                "9256731234",
-                "Male",
-                "Abdominal pain"
-            ))
+        binding.btnAddPatient.setOnClickListener {
+            val name = binding.edPatientName.text.toString()
+            val mobileno = binding.edPatientMobile.text.toString()
+            val gender = binding.edGender.text.toString()
+            val address = binding.edLocation.text.toString()
+            val email = binding.edEmail.text.toString()
+            val reason = binding.edPatientReason.text.toString()
+            patientDao.addPatient(
+                Patient(
+                    "",
+                    name,
+                    email,
+                    mobileno,
+                    gender,
+                    address,
+                    reason
+                )
+            )
         }
     }
 }

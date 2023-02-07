@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#AE03A9F4"
     tools:context=".ui.RegisterPatient">
 
     <TextView
@@ -13,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Patient Info"
-        android:textSize="40sp"
+        android:textSize="@dimen/size40sp"
         android:textStyle="bold"
         android:textColor="#009688"
         android:gravity="center"
@@ -21,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edPatientName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,46 +29,56 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/txtPatientTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
         android:layout_margin="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/edPatientName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/gender"
         android:layout_margin="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/edEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/location"
         android:layout_margin="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/edGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edPatientMobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/mobileno"
         android:layout_margin="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/edLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -87,18 +96,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edPatientReason"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="10dp"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         app:layout_constraintTop_toBottomOf="@id/txtPatientReason"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:id="@+id/btnAddPatient"
         android:layout_height="wrap_content"
         android:text="Register"
+        android:background="@drawable/white_curvy_bg"
+        android:padding="@dimen/size10dp"
         android:backgroundTint="@color/teal_700"
         app:layout_constraintTop_toBottomOf="@id/edPatientReason"
         app:layout_constraintEnd_toEndOf="parent"

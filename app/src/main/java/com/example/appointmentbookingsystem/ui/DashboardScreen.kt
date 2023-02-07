@@ -101,9 +101,10 @@ class DashboardScreen : AppCompatActivity() {
                 Patient(
                     "0",
                     "Smith",
+                    "smith@gmail.com",
                     "(000) 000-0000",
                     "male",
-                    "male",
+                    "123 Street",
                     "Ill"
                 ),
                 Constant.AppointmentType.AUTOPSY,
@@ -115,10 +116,11 @@ class DashboardScreen : AppCompatActivity() {
                 Patient(
                     "2",
                     "Catch",
+                    "cath@gmail.com",
                     "(000) 000-0000",
                     "male",
-                    "male",
-                    "male",
+                    "556 Ave",
+                    "nothing",
                 ),
                 Constant.AppointmentType.LIGMA,
                 LocalDateTime.now(),

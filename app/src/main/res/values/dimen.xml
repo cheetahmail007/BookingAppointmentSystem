@@ -16,5 +16,8 @@
     <dimen name="_290dp">290dp</dimen>
     <dimen name="_330dp">330dp</dimen>
 
+    <dimen name="size40sp">40sp</dimen>
+    <dimen name="size10dp">10dp</dimen>
+
     <dimen name="default_margin">15dp</dimen>
 </resources>
