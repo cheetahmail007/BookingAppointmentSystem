@@ -8,7 +8,8 @@ import com.example.appointmentbookingsystem.database.entity.Doctor
 import com.example.appointmentbookingsystem.databinding.ComponentNearbyDoctorsCardBinding
 
 class DashboardNearbyDoctorsAdapter(
-    private val items: List<Doctor>
+    private val items: List<Doctor>,
+    private val openDoctorDetailFunc: (Doctor) -> Unit
 ): RecyclerView.Adapter<DashboardNearbyDoctorsAdapter.VH>() {
     private lateinit var binding: ComponentNearbyDoctorsCardBinding
 
@@ -28,5 +29,7 @@ class DashboardNearbyDoctorsAdapter(
         }.run{ VH(root) }
 
     override fun getItemCount(): Int = items.size
-    override fun onBindViewHolder(holder: VH, position: Int) = holder.bind(items[position])
+    override fun onBindViewHolder(holder: VH, position: Int) = holder.apply{
+        itemView.setOnClickListener { openDoctorDetailFunc(items[position]) }
+    }.bind(items[position])
 }
