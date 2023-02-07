@@ -10,10 +10,10 @@
     app:cardCornerRadius="@dimen/_30dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="@dimen/_30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primary_background"
+        android:layout_margin="@dimen/_30dp"
+        android:background="@drawable/white_curvy_bg"
         tools:context=".ui.SplashScreen">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -30,33 +30,24 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDoctor"
+            style="@style/primaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_30dp"
             android:layout_marginTop="80dp"
-            android:background="@drawable/white_curvy_bg"
-            android:fontFamily="sans-serif-black"
             android:text="@string/register_doctor"
-            android:textColor="@color/primary_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnPatient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_30dp"
-            android:background="@drawable/white_curvy_bg"
-            android:fontFamily="sans-serif-black"
+            style="@style/primaryButton"
             android:text="@string/register_patient"
-            android:textColor="@color/primary_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnDoctor" />
@@ -66,12 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_30dp"
-            android:background="@drawable/white_curvy_bg"
-            android:fontFamily="sans-serif-black"
+            style="@style/primaryButton"
             android:text="@string/check_appointment"
-            android:textColor="@color/primary_background"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPatient" />
