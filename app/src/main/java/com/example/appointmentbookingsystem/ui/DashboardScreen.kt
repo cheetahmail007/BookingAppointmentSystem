@@ -72,7 +72,9 @@ class DashboardScreen : AppCompatActivity() {
                     "0",
                     "Smith",
                     "(000) 000-0000",
-                    "male"
+                    "male",
+                    "male",
+                    "Ill"
                 ),
                 Constant.AppointmentType.AUTOPSY,
                 LocalDateTime.now(),
@@ -84,7 +86,9 @@ class DashboardScreen : AppCompatActivity() {
                     "2",
                     "Catch",
                     "(000) 000-0000",
-                    "male"
+                    "male",
+                    "male",
+                    "male",
                 ),
                 Constant.AppointmentType.LIGMA,
                 LocalDateTime.now(),
