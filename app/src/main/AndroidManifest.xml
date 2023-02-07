@@ -12,25 +12,16 @@
         android:theme="@style/Theme.AppointmentBookingSystem"
         tools:targetApi="31">
         <activity
-            android:name=".DashboardScreen"
+            android:name=".ui.DashboardScreen"
             android:exported="false" />
         <activity
-            android:name=".RegisterPatient"
+            android:name=".ui.RegisterDoctor"
             android:exported="false" />
         <activity
-            android:name=".RegisterDoctor"
+            android:name=".ui.RegisterPatient"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

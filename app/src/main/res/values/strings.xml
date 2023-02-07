@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AppointmentBookingSystem</string>
+    <string name="welcome">Welcome to book appointment</string>
+    <string name="register_doctor">Register doctor</string>
+    <string name="register_patient">Register Patient</string>
+    <string name="check_appointment">Check appointment</string>
 </resources>
