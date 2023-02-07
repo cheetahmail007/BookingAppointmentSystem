@@ -36,4 +36,18 @@ object Constant {
           aptDateTime INTEGER)
           """.trimIndent()
 
+    // Reserved for appointments
+    enum class AppointmentType{
+        OTHERS,
+        VIBECHECK,
+        AUTOPSY,
+        LIGMA;
+
+        override fun toString(): String = when (this) {
+            OTHERS -> "Others"
+            VIBECHECK -> "Vibe Check"
+            AUTOPSY -> "Autopsy"
+            LIGMA -> "Ligma"
+        }
+    }
 }

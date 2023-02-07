@@ -4,4 +4,10 @@
     <string name="register_doctor">Register doctor</string>
     <string name="register_patient">Register Patient</string>
     <string name="check_appointment">Check appointment</string>
+    <string name="placeholder_name">(name)</string>
+    <string name="placeholder">\???</string>
+    <string name="upcoming_schedule">Upcoming Schedule</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="see_all">See All</string>
+    <string name="nearby_doctor">Nearby Doctor</string>
 </resources>
