@@ -14,6 +14,13 @@ class DoctorDao(private val dbHelper: DbHelper) {
         contentValues.apply {
             put("name", doctor.name)
             put("mobileNo", doctor.mobileNo)
+            put("gender", doctor.gender)
+            put("specialization", doctor.specialization)
+            put("location", doctor.location)
+            put("rating", doctor.rating)
+            put("experience", doctor.experience)
+            put("about", doctor.about)
+            put("email", doctor.email)
         }
 
         return database.writableDatabase.insert(DOCTOR_TABLE, null, contentValues)
