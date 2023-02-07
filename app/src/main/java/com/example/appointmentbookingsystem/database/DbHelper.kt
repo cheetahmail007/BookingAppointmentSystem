@@ -22,8 +22,16 @@ class DbHelper(private val context: Context) :
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP Table if exists $DOCTOR_TABLE")
+        /*db?.execSQL("DROP Table if exists $DOCTOR_TABLE")
         db?.execSQL("DROP Table if exists $PATIENT_TABLE")
-        db?.execSQL("DROP Table if exists $APPOINTMENT_TABLE")
+        db?.execSQL("DROP Table if exists $APPOINTMENT_TABLE")*/
+
+        if (oldVersion == 1 && newVersion == 2) {
+            db?.execSQL("Alter TABLE patient ADD COLUMN AGE INTEGER DEFAULT 0")
+        }
+    }
+
+    override fun onDowngrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        super.onDowngrade(db, oldVersion, newVersion)
     }
 }

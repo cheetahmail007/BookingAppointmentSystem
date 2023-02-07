@@ -2,7 +2,7 @@ package com.example.appointmentbookingsystem.database
 
 object Constant {
     const val DATABASE_NAME = "appointment-db"
-    const val DATABASE_VERSION = 1
+    const val DATABASE_VERSION = 2
     const val DOCTOR_TABLE = "doctor"
     const val PATIENT_TABLE = "patient"
     const val APPOINTMENT_TABLE = "appointment"

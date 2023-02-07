@@ -6,6 +6,7 @@ import android.content.Context
 import com.example.appointmentbookingsystem.database.DbHelper
 import com.example.appointmentbookingsystem.database.entity.Appointment
 import com.example.appointmentbookingsystem.database.entity.AppointmentDetails
+import java.sql.SQLException
 
 class AppointmentDao(private val context: Context) {
     private val db = DbHelper(context).writableDatabase
@@ -60,5 +61,28 @@ class AppointmentDao(private val context: Context) {
     fun deleteAppointment(patientId: Long): Boolean {
         val numOfRowDeleted: Int = db.delete("appointment", "doctorId=$patientId", null)
         return numOfRowDeleted == 1
+    }
+
+    fun confirmBooking(appointment: Appointment) {
+        try {
+            db.beginTransaction()
+
+            bookAppointment(appointment)
+            updateDoctor()
+            updatePatient()
+
+            db.setTransactionSuccessful()
+        } catch (e: SQLException) {
+            db.endTransaction()
+        }
+    }
+
+    fun updatePatient() {
+        //send notification
+
+    }
+
+    fun updateDoctor() {
+        //
     }
 }

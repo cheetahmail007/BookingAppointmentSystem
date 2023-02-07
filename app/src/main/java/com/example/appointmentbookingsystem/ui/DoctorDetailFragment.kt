@@ -30,7 +30,7 @@ class DoctorDetailFragment(
         binding.doctorDetailContact.text = "Email: ${doctorData.email} | Phone: ${doctorData.mobileNo}"
 
         binding.doctorDetailScheduleButton.setOnClickListener {
-            Intent(context, ScheduleAppointment::class.java).apply {
+            Intent(context, BookAppointmentActivity::class.java).apply {
                 putExtra(ARGS_DOCTOR_ID, doctorData.id)
                 putExtra(ARGS_DOCTOR_NAME, doctorData.name)
                 putExtra(ARGS_PATIENT_ID, patientId)

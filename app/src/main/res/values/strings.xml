@@ -26,5 +26,8 @@
     <string name="scheduleTitle">Schedule</string>
     <string name="patientName">Patient Name</string>
     <string name="about">About</string>
+    <string name="get_all_appointments">Get All Appointments</string>
+    <string name="select_patient">Select patient</string>
+    <string name="select_doctor">Select doctor</string>
     <string name="schedule_an_appointment">Schedule an Appointment</string>
 </resources>

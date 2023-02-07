@@ -1,5 +1,10 @@
 package com.example.appointmentbookingsystem.database.entity
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+
+@Parcelize
 data class Doctor(
     val id: Long,
     val name: String,
@@ -11,4 +16,4 @@ data class Doctor(
     val experience: Int,
     val about: String,
     val email: String,
-)
+) : Parcelable

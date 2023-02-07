@@ -17,6 +17,7 @@ class PatientDao(dbHelper: DbHelper) {
             put("location", patient.address)
             put("email", patient.email)
             put("reason", patient.reason)
+            put("age", patient.age)
         }
 
         return db.writableDatabase.insert("patient", null, contentValues)

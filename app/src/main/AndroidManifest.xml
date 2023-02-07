@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppointmentBookingSystem"
         tools:targetApi="31">
-        <activity android:name=".ui.ScheduleAppointment"
-            android:exported="false"/>
+        <activity
+            android:name=".ui.ScheduleAppointment"
+            android:exported="false" />
         <activity
             android:name=".ui.DashboardScreen"
             android:exported="false" />
@@ -22,6 +23,10 @@
         <activity
             android:name=".ui.RegisterPatient"
             android:exported="false" />
+        <activity android:name=".ui.ShowDoctorActivity" />
+        <activity android:name=".ui.ShowPatient" />
+        <activity android:name=".ui.BookAppointmentActivity" />
+
         <activity
             android:name=".ui.SplashScreen"
             android:exported="true">
