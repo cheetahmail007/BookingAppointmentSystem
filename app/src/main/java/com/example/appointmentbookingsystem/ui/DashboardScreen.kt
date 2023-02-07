@@ -99,7 +99,7 @@ class DashboardScreen : AppCompatActivity() {
             UpcomingSchedules(
                 placeholderDoctors[0],
                 Patient(
-                    "0",
+                    0L,
                     "Smith",
                     "smith@gmail.com",
                     "(000) 000-0000",
@@ -114,7 +114,7 @@ class DashboardScreen : AppCompatActivity() {
             UpcomingSchedules(
                 placeholderDoctors[1],
                 Patient(
-                    "2",
+                    2L,
                     "Catch",
                     "cath@gmail.com",
                     "(000) 000-0000",
