@@ -25,4 +25,6 @@
     <string name="chooseTimeTitle">Choose Time</string>
     <string name="scheduleTitle">Schedule</string>
     <string name="patientName">Patient Name</string>
+    <string name="about">About</string>
+    <string name="schedule_an_appointment">Schedule an Appointment</string>
 </resources>

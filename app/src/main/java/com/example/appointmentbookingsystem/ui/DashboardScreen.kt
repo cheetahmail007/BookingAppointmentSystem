@@ -2,8 +2,10 @@ package com.example.appointmentbookingsystem.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
+import com.example.appointmentbookingsystem.R
 import com.example.appointmentbookingsystem.adapters.DashboardNearbyDoctorsAdapter
 import com.example.appointmentbookingsystem.adapters.DashboardUpcomingSchedulesAdapter
 import com.example.appointmentbookingsystem.database.Constant
@@ -15,9 +17,20 @@ import java.time.LocalDateTime
 
 class DashboardScreen : AppCompatActivity() {
     private val binding by lazy { ActivityDashboardScreenBinding.inflate(layoutInflater) }
+    private lateinit var patient: Patient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        patient = Patient(
+            2L,
+            "Catch",
+            "cath@gmail.com",
+            "(000) 000-0000",
+            "male",
+            "556 Ave",
+            "nothing",
+        )
 
         binding.dashboardUpcomingSchedule.apply {
             layoutManager = LinearLayoutManager(this@DashboardScreen, LinearLayoutManager.HORIZONTAL, false)
@@ -27,8 +40,14 @@ class DashboardScreen : AppCompatActivity() {
 
         binding.dashboardAvailableDoctors.apply {
             layoutManager = LinearLayoutManager(this@DashboardScreen)
-            adapter = DashboardNearbyDoctorsAdapter(placeholderDoctors)
+            adapter = DashboardNearbyDoctorsAdapter(placeholderDoctors, ::openDoctorDetail)
         }
+    }
+
+    private fun openDoctorDetail(doctorData: Doctor) {
+        DoctorDetailFragment(doctorData, patient.id).apply {
+            setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialog)
+        }.show(supportFragmentManager, "Doctor Detail Fragment")
     }
 
     companion object {
