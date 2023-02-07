@@ -26,7 +26,8 @@ object Constant {
           mobileNo TEXT,
           gender TEXT,
           location TEXT,
-          email TEXT)
+          email TEXT,
+          reason TEXT )
           """.trimIndent()
 
     val CREATE_APPOINTMENT_TABLE = """CREATE TABLE appointment (
