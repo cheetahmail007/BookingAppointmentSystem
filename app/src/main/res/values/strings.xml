@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AppointmentBookingSystem</string>
     <string name="welcome">Welcome to book appointment</string>
@@ -10,4 +11,13 @@
     <string name="welcome_back">Welcome back</string>
     <string name="see_all">See All</string>
     <string name="nearby_doctor">Nearby Doctor</string>
+    <string name="name">Enter your full name</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="mobileno">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="reason">Explain your illness</string>
+    <string name="message">Describe your illness</string>
+    <string name="gender">Male or Female</string>
+    <string name="location">Address</string>
 </resources>
