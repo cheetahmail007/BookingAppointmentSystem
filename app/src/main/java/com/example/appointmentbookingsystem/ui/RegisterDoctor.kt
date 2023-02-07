@@ -1,15 +1,14 @@
 package com.example.appointmentbookingsystem.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.appointmentbookingsystem.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appointmentbookingsystem.database.DbHelper
 import com.example.appointmentbookingsystem.database.dao.DoctorDao
 import com.example.appointmentbookingsystem.database.entity.Doctor
 import com.example.appointmentbookingsystem.databinding.ActivityRegisterDoctorBinding
 
 fun String.convertedInt(): Int {
-    if(this == "") return 0
+    if (this == "") return 0
     var res = 0
     try {
         res = this.toInt()
@@ -17,7 +16,7 @@ fun String.convertedInt(): Int {
     }
     return res
 }
-//Add doctor in screen - Thomas
+
 class RegisterDoctor : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterDoctorBinding
@@ -47,23 +46,24 @@ class RegisterDoctor : AppCompatActivity() {
             val experience = binding.editExperience.text.toString()
             val about = binding.editAbout.text.toString()
             val email = binding.editEmail.text.toString()
-            doctorDao.addDoctor(
-                Doctor(
-                    69L,
-                    name,
-                    mobileNo,
-                    gender,
-                    specialization,
-                    location,
-                    rating.convertedInt(),
-                    experience.convertedInt(),
-                    about,
-                    email)
-            )
+
+            if (doctorDao.addDoctor(
+                    Doctor(
+                        0,
+                        name,
+                        mobileNo,
+                        gender,
+                        specialization,
+                        location,
+                        rating.convertedInt(),
+                        experience.convertedInt(),
+                        about,
+                        email
+                    )
+                ) > 0
+            ) {
+                finish()
+            }
         }
-    }
-
-    fun registerDoctor() {
-
     }
 }

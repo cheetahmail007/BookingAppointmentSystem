@@ -1,16 +1,13 @@
 package com.example.appointmentbookingsystem.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.appointmentbookingsystem.R
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appointmentbookingsystem.database.DbHelper
 import com.example.appointmentbookingsystem.database.dao.PatientDao
 import com.example.appointmentbookingsystem.database.entity.Patient
-import com.example.appointmentbookingsystem.databinding.ActivityMainBinding
 import com.example.appointmentbookingsystem.databinding.ActivityRegisterPatientBinding
 
-// Assigning it to Alex
-//Make UI to get register patient and call add patient -> create UI add method in Dao
 class RegisterPatient : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterPatientBinding
     private lateinit var dbHelper: DbHelper
@@ -22,29 +19,38 @@ class RegisterPatient : AppCompatActivity() {
         initDatabase()
         initView()
     }
+
     private fun initDatabase() {
         dbHelper = DbHelper(this.applicationContext)
         patientDao = PatientDao(dbHelper)
     }
+
     private fun initView() {
-        binding.btnAddPatient.setOnClickListener {
-            val name = binding.edPatientName.text.toString()
-            val mobileno = binding.edPatientMobile.text.toString()
-            val gender = binding.edGender.text.toString()
-            val address = binding.edLocation.text.toString()
-            val email = binding.edEmail.text.toString()
-            val reason = binding.edPatientReason.text.toString()
-            patientDao.addPatient(
-                Patient(
-                    "",
-                    name,
-                    email,
-                    mobileno,
-                    gender,
-                    address,
-                    reason
-                )
-            )
+        binding.apply {
+            btnAddPatient.setOnClickListener {
+                val name = edPatientName.text.toString()
+                val mobileno = edPatientMobile.text.toString()
+                val gender = edGender.text.toString()
+                val address = edLocation.text.toString()
+                val email = edEmail.text.toString()
+                val reason = edPatientReason.text.toString()
+                if (patientDao.addPatient(
+                        Patient(
+                            0,
+                            name,
+                            email,
+                            mobileno,
+                            gender,
+                            address,
+                            reason
+                        )
+                    ) > 0
+                ) {
+                    finish()
+                } else {
+                    Toast.makeText(this@RegisterPatient, "Bad input", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }
