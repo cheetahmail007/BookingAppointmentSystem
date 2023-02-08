@@ -3,7 +3,6 @@ package com.example.appointmentbookingsystem.database.entity
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-
 @Parcelize
 data class Doctor(
     val id: Long,
