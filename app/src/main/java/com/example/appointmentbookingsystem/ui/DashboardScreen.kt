@@ -2,45 +2,75 @@ package com.example.appointmentbookingsystem.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appointmentbookingsystem.R
 import com.example.appointmentbookingsystem.adapters.DashboardNearbyDoctorsAdapter
 import com.example.appointmentbookingsystem.adapters.DashboardUpcomingSchedulesAdapter
-import com.example.appointmentbookingsystem.database.Constant
+import com.example.appointmentbookingsystem.database.DbHelper
+import com.example.appointmentbookingsystem.database.dao.AppointmentDao
+import com.example.appointmentbookingsystem.database.dao.DoctorDao
+import com.example.appointmentbookingsystem.database.dao.PatientDao
 import com.example.appointmentbookingsystem.database.entity.Doctor
 import com.example.appointmentbookingsystem.database.entity.Patient
 import com.example.appointmentbookingsystem.databinding.ActivityDashboardScreenBinding
-import com.example.appointmentbookingsystem.dataclasses.UpcomingSchedules
-import java.time.LocalDateTime
 
 class DashboardScreen : AppCompatActivity() {
     private val binding by lazy { ActivityDashboardScreenBinding.inflate(layoutInflater) }
     private lateinit var patient: Patient
+
+    private lateinit var patientDao: PatientDao
+    private lateinit var doctorDao: DoctorDao
+    private lateinit var appointmentDao: AppointmentDao
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        patient = Patient(
-            2L,
-            "Catch",
-            "cath@gmail.com",
+        patientDao = PatientDao(DbHelper(applicationContext))
+        doctorDao = DoctorDao(DbHelper(applicationContext))
+        appointmentDao = AppointmentDao(applicationContext)
+
+        patient = patientDao.getAllPatient().takeIf { it.size > 0 }?.last() ?: Patient(
+            0L,
+            "Anonymous",
+            "anonymous@gmail.com",
             "(000) 000-0000",
             "male",
-            "556 Ave",
-            "nothing",
+            "",
+            "Ligma",
         )
+
+        binding.dashboardUserNameDisplay.text = patient.name
 
         binding.dashboardUpcomingSchedule.apply {
             layoutManager = LinearLayoutManager(this@DashboardScreen, LinearLayoutManager.HORIZONTAL, false)
-            adapter = DashboardUpcomingSchedulesAdapter(placeholderSchedule)
+            adapter = DashboardUpcomingSchedulesAdapter(appointmentDao.getAllBookedAppointments())
             PagerSnapHelper().attachToRecyclerView(this)
+            displayNoItems( this, binding.dashboardNoAppointmentsMessage )
         }
+
 
         binding.dashboardAvailableDoctors.apply {
             layoutManager = LinearLayoutManager(this@DashboardScreen)
-            adapter = DashboardNearbyDoctorsAdapter(placeholderDoctors, ::openDoctorDetail)
+            adapter = DashboardNearbyDoctorsAdapter(doctorDao.getAllDoctor(), ::openDoctorDetail)
+            displayNoItems( this, binding.dashboardNoDoctorMessage )
+        }
+    }
+
+    private fun displayNoItems(
+        recycleViewIfPopulated: RecyclerView,
+        viewIfEmpty: View
+    ) {
+        if ((recycleViewIfPopulated.adapter?.itemCount ?: 0) > 0) {
+            recycleViewIfPopulated.visibility = View.VISIBLE
+            viewIfEmpty.visibility = View.INVISIBLE
+        } else {
+            recycleViewIfPopulated.visibility = View.INVISIBLE
+            viewIfEmpty.visibility = View.VISIBLE
         }
     }
 
@@ -48,103 +78,5 @@ class DashboardScreen : AppCompatActivity() {
         DoctorDetailFragment(doctorData, patient.id).apply {
             setStyle(DialogFragment.STYLE_NORMAL, R.style.FullScreenDialog)
         }.show(supportFragmentManager, "Doctor Detail Fragment")
-    }
-
-    companion object {
-        val placeholderDoctors = listOf(
-            Doctor(
-                0L,
-                "Joe",
-                "(000) 000-0000",
-                "male",
-                "",
-                "",
-                0,
-                0,
-                "",
-                ""
-            ),
-            Doctor(
-                1L,
-                "Dunwanna",
-                "(000) 000-0000",
-                "male",
-                "",
-                "",
-                0,
-                0,
-                "",
-                ""
-            ),
-            Doctor(
-                2L,
-                "Lisa",
-                "(000) 000-0000",
-                "not male",
-                "",
-                "",
-                0,
-                0,
-                "",
-                ""
-            ),
-            Doctor(
-                3L,
-                "Patient",
-                "(000) 000-0000",
-                "male",
-                "",
-                "",
-                0,
-                0,
-                "",
-                ""
-            ),
-            Doctor(
-                4L,
-                "Not Doctor",
-                "(000) 000-0000",
-                "undefined",
-                "",
-                "",
-                0,
-                0,
-                "",
-                ""
-            )
-        )
-
-        val placeholderSchedule = listOf(
-            UpcomingSchedules(
-                placeholderDoctors[0],
-                Patient(
-                    0L,
-                    "Smith",
-                    "smith@gmail.com",
-                    "(000) 000-0000",
-                    "male",
-                    "123 Street",
-                    "Ill"
-                ),
-                Constant.AppointmentType.AUTOPSY,
-                LocalDateTime.now(),
-                ""
-            ),
-            UpcomingSchedules(
-                placeholderDoctors[1],
-                Patient(
-                    2L,
-                    "Catch",
-                    "cath@gmail.com",
-                    "(000) 000-0000",
-                    "male",
-                    "556 Ave",
-                    "nothing",
-                ),
-                Constant.AppointmentType.LIGMA,
-                LocalDateTime.now(),
-                ""
-            )
-        )
     }
 }

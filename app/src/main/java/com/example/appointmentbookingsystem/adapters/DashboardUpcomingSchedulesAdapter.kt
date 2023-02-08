@@ -4,19 +4,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appointmentbookingsystem.database.entity.AppointmentDetails
 import com.example.appointmentbookingsystem.databinding.ComponentUpcomingScheduleCardBinding
 import com.example.appointmentbookingsystem.dataclasses.UpcomingSchedules
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class DashboardUpcomingSchedulesAdapter(
-    private val items: List<UpcomingSchedules>
+    private val items: List<AppointmentDetails>
 ): RecyclerView.Adapter<DashboardUpcomingSchedulesAdapter.VH>() {
     private lateinit var binding: ComponentUpcomingScheduleCardBinding
 
     inner class VH(view: View): RecyclerView.ViewHolder(view) {
-        fun bind(item: UpcomingSchedules) {
-            binding.doctorName.text = item.doctorData.name
-            binding.appointmentSummary.text = "(${item.appointedTime.format(DateTimeFormatter.ISO_DATE)}) ${item.appointmentType}"
+        fun bind(item: AppointmentDetails) {
+            binding.doctorName.text = item.doctorName
+            binding.appointmentSummary.text = LocalDateTime
+                .ofEpochSecond(item.aptDateTime, 0, ZoneOffset.UTC)
+                .format(DateTimeFormatter.ISO_DATE)
         }
     }
 
