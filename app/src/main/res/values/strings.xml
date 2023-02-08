@@ -30,4 +30,6 @@
     <string name="select_patient">Select patient</string>
     <string name="select_doctor">Select doctor</string>
     <string name="schedule_an_appointment">Schedule an Appointment</string>
+    <string name="dashboardNoAppointmentsMessage">You\'re all caught up! Have a cookie.</string>
+    <string name="dashboardNoDoctorMessage">There are no doctors nearby...</string>
 </resources>
